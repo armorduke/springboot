@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleService } from './core/services/title.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,7 @@ import { TitleService } from './core/services/title.service';
   providers: []
 })
 export class AppComponent implements OnInit{
-  title = 'prova';
+  title = 'spring-app';
 
   constructor() {
   }
