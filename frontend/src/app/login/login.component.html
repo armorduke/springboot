@@ -1,0 +1,24 @@
+<br>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<div class="p-grid p-align-center">
+  <div class="p-col-12"></div>
+  <div class="p-col-12"></div>
+  <div class="p-col-4 p-offset-4">
+    <p-panel header="{{titleService.title}}">
+      <form [formGroup]="formLogin" style="text-align: center;">
+        <br>
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+          <input style="width: 100%;" type="text" pInputText formControlName="username" name="username" placeholder="Digite o usuário" />
+        </div>
+        <br>
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-lock"></i></span>
+          <input style="width: 100%;" type="password" pInputText formControlName="password" name="password" placeholder="Digite a senha" />
+        </div>
+        <br>
+        <button pButton type="button" label="Logar" (click)="logar()" class="ui-button-raised"></button>
+      </form>
+    </p-panel>
+  </div>
+</div>

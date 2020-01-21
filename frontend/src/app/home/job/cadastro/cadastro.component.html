@@ -1,0 +1,82 @@
+<br>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<div class="p-grid p-align-center">
+  <div class="p-col-10 p-offset-1">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row><span>Cadastro de Jobs</span></mat-toolbar-row>
+    </mat-toolbar>
+    <form [formGroup]="formCadastro">
+      <div class="p-col-12">
+        <p-fieldset legend="Adicionar Job" [toggleable]="false">
+          <div class="p-grid p-align-center">
+            <div class="p-col-4">
+              <label>Nome do Job</label>
+              <input style="width: 100%;" type="text" pInputText formControlName="name" name="name" />
+            </div>
+            <div class="p-col-1">
+              <label>Ativo</label><br>
+              <p-checkbox formControlName="ativo" binary="true"></p-checkbox>
+            </div>
+            <div class="p-col-4">
+              <label>Parent Job</label><br>
+              <p-dropdown [options]="jobs" formControlName="selectedJob"></p-dropdown>
+            </div>
+            <div class="p-col-3"></div>
+          </div>
+        </p-fieldset>
+      </div>
+    </form>
+    <form [formGroup]="formTask">
+      <div class="p-col-12">
+        <p-fieldset legend="Adicionar Task" [toggleable]="false">
+          <div class="p-grid p-align-center">
+            <div class="p-col-4">
+              <label>Nome da Task</label>
+              <input style="width: 100%;" type="text" pInputText formControlName="name" name="name" />
+            </div>
+            <div class="p-col-2">
+              <label>Weight</label>
+              <input style="width: 100%;" type="text" pInputText formControlName="weight" name="weight" />
+            </div>
+            <div class="p-col-4">
+              <label>Completada</label><br>
+              <p-checkbox formControlName="completed" binary="completed"></p-checkbox>
+            </div>
+            <div class="p-col-2">
+              <button pButton type="button" label="Adicionar Task" (click)="adicionarTask()"
+                class="ui-button-raised"></button>
+            </div>
+          </div>
+        </p-fieldset>
+      </div>
+    </form>
+    <div class="p-col-12">
+      <p-panel header="Tasks Adicionadas" [toggleable]="false">
+        <p-table [columns]="cols" [value]="tasks" [paginator]="true" [rows]="10">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th>Nome</th>
+              <th>Peso</th>
+              <th>Completada</th>
+              <th>Data da Criação</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-task let-columns="columns">
+            <tr style="text-align: center;">
+              <td>{{task.name}}</td>
+              <td>{{task.weight}}</td>
+              <td>{{task.completed}}</td>
+              <td>
+                  {{task.createdAt | date:'MM/dd/yyyy'}}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-panel>
+    </div>
+    <div class="p-col-12" style="text-align: right;">
+        <button pButton type="button" label="Cadastrar" (click)="cadastrar()" class="ui-button-raised ui-button-success"></button>
+    </div>
+
+  </div>
+</div>

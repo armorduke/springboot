@@ -1,0 +1,30 @@
+<br>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<div class="p-grid p-align-center">
+  <div class="p-col-10 p-offset-1" style="text-align: right;">
+      <button pButton type="button" label="Cadastrar Novo Job" (click)="cadastrar()"></button>
+  </div>
+  <div class="p-col-10 p-offset-1">
+    <p-panel header="{{titleService.title}}">
+      <form style="text-align: center;" [formGroup]="formJob">
+        <div class="p-grid p-align-center">
+          <div class="p-col-3">
+            <input style="width: 100%;" type="text" pInputText formControlName="name" name="name" placeholder="name" />
+          </div>
+          <div class="p-col-3">
+            <input style="width: 100%;" type="text" pInputText formControlName="active" name="active"
+              placeholder="active" />
+          </div>
+          <div class="p-col-3">
+            <input style="width: 100%;" type="text" pInputText formControlName="parentJob" name="parentJob"
+              placeholder="parentJob" />
+          </div>
+          <button pButton type="button" label="Pesquisar" (click)="pesquisar()" class="ui-button-raised"></button>
+        </div>
+      </form>
+    </p-panel>
+  </div>
+  <div class="p-col-10 p-offset-1">
+    <job-lista-component [jobs]="jobs"></job-lista-component>
+  </div>
+</div>
